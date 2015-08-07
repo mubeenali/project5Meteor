@@ -1,0 +1,61 @@
+
+<template name="showNews">
+
+<div>
+<ul class="list-group">
+{{#each posts}}
+      
+    <div>
+<li class="list-group-item">  
+    <h3><span style="font-weight:bold">{{title}}</span>   </h3>
+     <p><a href = "{{url}}" ><span>{{url}}</span></a></p>
+    <h4>{{discription}}</h4>
+    </li>
+    </div>
+    
+  {{/each}}
+  </ul>
+
+
+</div>
+</template>
+
+
+
+<template name="formForNews">
+{{#if currentUser}} 
+  <div class="row">
+    <div class="col-xs-8 col-md-offset-2">
+      {{> quickForm collection="newsList" id="insertPostForm" type="insert"}}
+    </div>
+  </div>
+<!--
+<div class="col-xs-8 col-md-offset-2">
+
+<div>  
+<br/><br/>
+  <form id="formf">
+    <div class="form-group">
+      <label for="title">News Heading:</label>
+      <input type="text" class="form-control" id="newstitle"  placeholder="Enter News Title">
+    </div>
+    <div class="form-group">
+      <label for="url">News Link:</label>
+      <input type="text" class="form-control" id="newsUrl" placeholder="place Url Here">
+    </div>
+    <div class="form-group">
+      <label for="discription">News Discription:</label>
+      <textarea type="text" class="form-control" id="newsdiscription"  placeholder="Enter Discription Here"></textarea>
+    </div>
+    <button type="submit" id="submitNews" class="btn btn-inverse center-block" >Submit</button>
+
+  </form>
+</div>
+
+</div> -->
+{{else}}
+{{> showNews}}
+{{/if}}
+
+</template>
+
